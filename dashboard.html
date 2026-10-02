@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🎓
+            </div>
+
+            <div>
+                <h2>EduPEC</h2>
+                <small>Student Portal</small>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button
+                class="menu active"
+                onclick="showPage('dashboardPage', this)"
+            >
+                📊
+                <span>Dashboard</span>
+            </button>
+
+
+            <button
+                class="menu"
+                onclick="showPage('studentPage', this)"
+            >
+                👨‍🎓
+                <span>Students</span>
+            </button>
+
+
+            <button
+                class="menu"
+                onclick="showPage('addPage', this)"
+            >
+                ➕
+                <span>Add Student</span>
+            </button>
+
+
+            <button
+                class="menu"
+                onclick="showPage('profilePage', this)"
+            >
+                👤
+                <span>Profile</span>
+            </button>
+
+
+            <button
+                class="menu"
+                onclick="showPage('settingsPage', this)"
+            >
+                ⚙️
+                <span>Settings</span>
+            </button>
+
+        </nav>
+
+
+        <button
+            class="logout"
+            onclick="logout()"
+        >
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+                <p>
+                    Student Management System
+                </p>
+
+            </div>
+
+
+            <div class="user-box">
+
+                <div class="user-avatar">
+                    S
+                </div>
+
+                <div>
+
+                    <strong id="loggedUser">
+                        Student
+                    </strong>
+
+                    <small>
+                        Student
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section
+            id="dashboardPage"
+            class="page active-page"
+        >
+
+            <div class="welcome">
+
+                <div>
+
+                    <span>
+                        WELCOME BACK 👋
+                    </span>
+
+                    <h2>
+                        Student Management Dashboard
+                    </h2>
+
+                    <p>
+                        Manage student information easily.
+                    </p>
+
+                </div>
+
+                <div class="welcome-icon">
+                    🎓
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👨‍🎓
+                    </div>
+
+                    <div>
+
+                        <p>Total Students</p>
+
+                        <h2 id="totalStudents">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💻
+                    </div>
+
+                    <div>
+
+                        <p>IT Students</p>
+
+                        <h2 id="itCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🖥️
+                    </div>
+
+                    <div>
+
+                        <p>CSE Students</p>
+
+                        <h2 id="cseCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <p>ECE Students</p>
+
+                        <h2 id="eceCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CLICKABLE CARDS -->
+
+            <h2 class="section-title">
+                Quick Access
+            </h2>
+
+
+            <div class="quick-grid">
+
+                <div
+                    class="quick-card"
+                    onclick="showPage('studentPage')"
+                >
+
+                    <div class="quick-icon">
+                        👨‍🎓
+                    </div>
+
+                    <h3>
+                        Student List
+                    </h3>
+
+                    <p>
+                        View all student records
+                    </p>
+
+                    <span>
+                        View Students →
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="showPage('addPage')"
+                >
+
+                    <div class="quick-icon">
+                        ➕
+                    </div>
+
+                    <h3>
+                        Add Student
+                    </h3>
+
+                    <p>
+                        Add a new student
+                    </p>
+
+                    <span>
+                        Add Student →
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="showPage('profilePage')"
+                >
+
+                    <div class="quick-icon">
+                        👤
+                    </div>
+
+                    <h3>
+                        Profile
+                    </h3>
+
+                    <p>
+                        View student profile
+                    </p>
+
+                    <span>
+                        Open Profile →
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="showPage('settingsPage')"
+                >
+
+                    <div class="quick-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Settings
+                    </h3>
+
+                    <p>
+                        Manage settings
+                    </p>
+
+                    <span>
+                        Open Settings →
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEPARTMENT -->
+
+            <div class="content-grid">
+
+                <div class="panel">
+
+                    <h3>
+                        Department-wise Students
+                    </h3>
+
+                    <p class="muted">
+                        Student distribution
+                    </p>
+
+                    <div id="departmentChart"></div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>
+                        Year-wise Summary
+                    </h3>
+
+                    <p class="muted">
+                        Students by year
+                    </p>
+
+                    <div id="yearSummary"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= STUDENTS ================= -->
+
+        <section
+            id="studentPage"
+            class="page"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>
+                        Student List
+                    </h2>
+
+                    <p>
+                        Manage all student records
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    onclick="showPage('addPage')"
+                >
+                    + Add Student
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="🔍 Search name or register number..."
+                    oninput="renderStudents()"
+                >
+
+
+                <select
+                    id="departmentFilter"
+                    onchange="renderStudents()"
+                >
+
+                    <option value="">
+                        All Departments
+                    </option>
+
+                    <option value="AI&DS">
+                        AI&DS
+                    </option>
+
+                    <option value="IT">
+                        IT
+                    </option>
+
+                    <option value="CSE">
+                        CSE
+                    </option>
+
+                    <option value="ECE">
+                        ECE
+                    </option>
+
+                    <option value="MECH">
+                        MECH
+                    </option>
+
+                </select>
+
+
+                <select
+                    id="yearFilter"
+                    onchange="renderStudents()"
+                >
+
+                    <option value="">
+                        All Years
+                    </option>
+
+                    <option value="I">
+                        I Year
+                    </option>
+
+                    <option value="II">
+                        II Year
+                    </option>
+
+                    <option value="III">
+                        III Year
+                    </option>
+
+                    <option value="IV">
+                        IV Year
+                    </option>
+
+                </select>
+
+
+                <select
+                    id="sortFilter"
+                    onchange="renderStudents()"
+                >
+
+                    <option value="">
+                        Sort
+                    </option>
+
+                    <option value="nameAsc">
+                        Name A-Z
+                    </option>
+
+                    <option value="nameDesc">
+                        Name Z-A
+                    </option>
+
+                    <option value="regAsc">
+                        Register A-Z
+                    </option>
+
+                    <option value="regDesc">
+                        Register Z-A
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="table-box">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Register No
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Department
+                            </th>
+
+                            <th>
+                                Year
+                            </th>
+
+                            <th>
+                                Semester
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Phone
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="studentTable"
+                    ></tbody>
+
+                </table>
+
+
+                <div
+                    id="empty"
+                    class="empty"
+                >
+                    📭
+                    <h3>
+                        No students found
+                    </h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ADD STUDENT ================= -->
+
+        <section
+            id="addPage"
+            class="page"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2 id="formHeading">
+                        Add Student
+                    </h2>
+
+                    <p>
+                        Enter student information
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-card">
+
+                <form onsubmit="saveStudent(event)">
+
+                    <input
+                        type="hidden"
+                        id="editIndex"
+                    >
+
+
+                    <div class="form-grid">
+
+                        <div>
+
+                            <label>
+                                Register Number *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registerNo"
+                                placeholder="23IT001"
+                            >
+
+                            <small
+                                id="regError"
+                                class="error"
+                            ></small>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Student Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentName"
+                                placeholder="Enter name"
+                            >
+
+                            <small
+                                id="nameError"
+                                class="error"
+                            ></small>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Email *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="student@example.com"
+                            >
+
+                            <small
+                                id="emailError"
+                                class="error"
+                            ></small>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Phone Number *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="phone"
+                                maxlength="10"
+                                placeholder="9876543210"
+                            >
+
+                            <small
+                                id="phoneError"
+                                class="error"
+                            ></small>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Department *
+                            </label>
+
+                            <select id="department">
+
+                                <option value="">
+                                    Select Department
+                                </option>
+
+                                <option value="AI&DS">
+                                    AI&DS
+                                </option>
+
+                                <option value="IT">
+                                    IT
+                                </option>
+
+                                <option value="CSE">
+                                    CSE
+                                </option>
+
+                                <option value="ECE">
+                                    ECE
+                                </option>
+
+                                <option value="MECH">
+                                    MECH
+                                </option>
+
+                            </select>
+
+                            <small
+                                id="deptError"
+                                class="error"
+                            ></small>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Year *
+                            </label>
+
+                            <select id="year">
+
+                                <option value="">
+                                    Select Year
+                                </option>
+
+                                <option value="I">
+                                    I
+                                </option>
+
+                                <option value="II">
+                                    II
+                                </option>
+
+                                <option value="III">
+                                    III
+                                </option>
+
+                                <option value="IV">
+                                    IV
+                                </option>
+
+                            </select>
+
+                            <small
+                                id="yearError"
+                                class="error"
+                            ></small>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Semester *
+                            </label>
+
+                            <select id="semester">
+
+                                <option value="">
+                                    Select Semester
+                                </option>
+
+                                <option value="I">
+                                    I
+                                </option>
+
+                                <option value="II">
+                                    II
+                                </option>
+
+                                <option value="III">
+                                    III
+                                </option>
+
+                                <option value="IV">
+                                    IV
+                                </option>
+
+                                <option value="V">
+                                    V
+                                </option>
+
+                                <option value="VI">
+                                    VI
+                                </option>
+
+                                <option value="VII">
+                                    VII
+                                </option>
+
+                                <option value="VIII">
+                                    VIII
+                                </option>
+
+                            </select>
+
+                            <small
+                                id="semError"
+                                class="error"
+                            ></small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-buttons">
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            onclick="clearForm()"
+                        >
+                            Clear
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
+                            <span id="saveText">
+                                Add Student
+                            </span>
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= PROFILE ================= -->
+
+        <section
+            id="profilePage"
+            class="page"
+        >
+
+            <div class="profile-card">
+
+                <div class="big-avatar">
+                    S
+                </div>
+
+                <h2>
+                    Student Profile
+                </h2>
+
+                <p>
+                    Student account information
+                </p>
+
+                <div class="profile-details">
+
+                    <div>
+                        <strong>Username</strong>
+                        <span id="profileUsername">
+                            student
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>Role</strong>
+                        <span>Student</span>
+                    </div>
+
+                    <div>
+                        <strong>Status</strong>
+                        <span class="status">
+                            Active
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SETTINGS ================= -->
+
+        <section
+            id="settingsPage"
+            class="page"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p>
+                        Manage your dashboard settings
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="setting">
+
+                    <div>
+
+                        <strong>
+                            Account
+                        </strong>
+
+                        <p>
+                            Student account is active.
+                        </p>
+
+                    </div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                </div>
+
+
+                <div class="setting">
+
+                    <div>
+
+                        <strong>
+                            Dashboard
+                        </strong>
+
+                        <p>
+                            Student dashboard is enabled.
+                        </p>
+
+                    </div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                </div>
+
+
+                <div class="setting">
+
+                    <div>
+
+                        <strong>
+                            Logout
+                        </strong>
+
+                        <p>
+                            Sign out from this account.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="logout-small"
+                        onclick="logout()"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

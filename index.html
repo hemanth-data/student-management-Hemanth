@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="login-icon">🎓</div>
+
+        <h1>Student Login</h1>
+        <p>Login to access your student dashboard</p>
+
+        <form onsubmit="login(event)">
+
+            <label>Username</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required
+            >
+
+            <p id="loginError" class="login-error"></p>
+
+            <button type="submit" class="login-button">
+                Login
+            </button>
+
+        </form>
+        <div class="demo-login">
+            <b>Demo Login</b><br>
+            Username: Hemanth<br>
+            Password: 12345
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ Student Management System
 
 ## Student Name
 
-Hemanth
+Hemanth G
 
 ## Technology Used
 
